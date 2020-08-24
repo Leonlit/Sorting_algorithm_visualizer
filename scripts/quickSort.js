@@ -1,5 +1,5 @@
 'use strict'
-export function quickSort (arr, descending = false,) {
+function quickSort (arr, descending = false, offset=0) {
     if (arr.length <= 1) return arr;
     if (arr.length == 2) {
         if (descending) {
@@ -28,5 +28,7 @@ export function quickSort (arr, descending = false,) {
             }
         }
     }
-    return [...quickSort(left, descending), pivot, ...quickSort(right, descending)];
+    console.log(offset);
+    drawDivideSwap(left, pivot, right, offset);
+    return [...quickSort(left, descending, offset), pivot, ...quickSort(right, descending, offset + left.length + 1)];
 }

@@ -1,5 +1,5 @@
 'use strict'
-export function insertionSort (arr, descending=false) {
+function insertionSort (arr, descending=false) {
     for (let position = 1 ; position < arr.length; position++) {
         let swapIndex;
         const currItem = arr[position];
@@ -20,10 +20,12 @@ export function insertionSort (arr, descending=false) {
         if (swapIndex != undefined) {
             const currItem = arr[position];
             for (let swap = position; swap > swapIndex ;swap--) {
+                drawSwap(arr.slice(0), swapIndex, swap - 1 , swap);
                 arr[swap] = arr[swap-1];
             }
             arr[swapIndex] = currItem;
         }
     }
+    drawSorted(arr)
     return arr;
 }

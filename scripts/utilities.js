@@ -5,7 +5,7 @@ const SUPER_LONG_STATIC_ARRAY = [525,120,281,166,505,317,135,618,345,467,46,748,
 
 //use to generate random array with the specified size
 function generateArray (size) {
-    return [...new Array(size)].map(()=> Math.floor(Math.random() * (size * 2)));
+    return [...new Array(size)].map(()=> Math.floor(Math.random() * size) + 1);
 }
 
 //return the static array
