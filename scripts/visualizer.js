@@ -17,14 +17,20 @@ async function drawSwap (arr, limiter, from, to) {
 }
 
 async function drawDivideSwap(left, pivot, right, offset) {
-    let arr = [...left, pivot, ...right];
+    let arr = [];
+    if (pivot == null) {
+        arr = [left, right];
+    }else {
+        arr = [...left, pivot, ...right];
+    }
     await delay(100);
     ctx.clearRect((offset * (width + 1)), 0, arr.length * (width + 1), canvas.height);
     for (let index = 0; index < arr.length; index++) {
         ctx.fillStyle = "red";
+        if (index == left.length) ctx.fillStyle = "green"
         ctx.fillRect((offset + index) * (width + 1), canvas.height, width, -arr[index]);
     }
-    await delay(100);
+    await delay(110);
     ctx.clearRect((offset * (width + 1)), 0, arr.length * (width + 1), canvas.height);
     for (let index = 0; index < arr.length; index++) {
         ctx.fillStyle = "white";

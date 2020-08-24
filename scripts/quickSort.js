@@ -2,13 +2,14 @@
 function quickSort (arr, descending = false, offset=0) {
     if (arr.length <= 1) return arr;
     if (arr.length == 2) {
+        let tempArr;
         if (descending) {
-            let tempArr = [Math.max(...arr), Math.min(...arr)];
-            return tempArr;
+            tempArr = [Math.max(...arr), Math.min(...arr)];
         }else {
-            let tempArr = [Math.min(...arr), Math.max(...arr)];
-            return tempArr;
+            tempArr = [Math.min(...arr), Math.max(...arr)];
         }
+        drawDivideSwap(tempArr[0], null, tempArr[1], offset);
+        return tempArr;
     }
     let pivot = arr[arr.length - 1];
     let left = [], right = [];
