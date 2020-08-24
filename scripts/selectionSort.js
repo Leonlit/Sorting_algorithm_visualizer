@@ -1,5 +1,5 @@
 'use strict'
-function selectionSort (arr, descending = false) {
+async function selectionSort (arr, descending = false) {
     for (let position = 0; position < arr.length - 1; position++) {
         let currSwap = arr[position];
         let currSwapIndex = position;
@@ -16,7 +16,6 @@ function selectionSort (arr, descending = false) {
         arr[currSwapIndex] = arr[position] - arr[currSwapIndex];
         arr[position] = arr[position] - arr[currSwapIndex];
     }
-    drawSorted(arr)
+    await drawSorted(arr)
     console.log(arr);
-    return arr;
 }

@@ -1,5 +1,5 @@
 'use strict'
-function quickSort (arr, descending = false, offset=0) {
+async function quickSort (arr, descending = false, offset=0) {
     if (arr.length <= 1) return arr;
     if (arr.length == 2) {
         let tempArr;
@@ -29,7 +29,7 @@ function quickSort (arr, descending = false, offset=0) {
             }
         }
     }
-    console.log(offset);
+    await delay(10)
     drawDivideSwap(left, pivot, right, offset);
-    return [...quickSort(left, descending, offset), pivot, ...quickSort(right, descending, offset + left.length + 1)];
+    return [...(await quickSort(left, descending, offset)), pivot, ... (await quickSort(right, descending, offset + left.length + 1))];
 }

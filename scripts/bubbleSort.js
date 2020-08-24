@@ -1,5 +1,5 @@
 'use strict'
-function bubbleSort (arr, descending=false) {
+async function bubbleSort (arr, descending=false) {
     for (let position = 0; position < arr.length; position++) {
         for (let element = 0 ; element < arr.length - position - 1; element++) {
             const currItem = arr[element];
@@ -12,6 +12,5 @@ function bubbleSort (arr, descending=false) {
             drawSwap(arr.slice(0), arr.length - position, element, element+1);
         }
     }
-    drawSorted(arr);
-    return arr;
+    await drawSorted(arr);
 }

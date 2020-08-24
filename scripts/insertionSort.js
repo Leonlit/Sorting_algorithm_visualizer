@@ -1,5 +1,5 @@
 'use strict'
-function insertionSort (arr, descending=false) {
+async function insertionSort (arr, descending=false) {
     for (let position = 1 ; position < arr.length; position++) {
         let swapIndex;
         const currItem = arr[position];
@@ -26,6 +26,5 @@ function insertionSort (arr, descending=false) {
             arr[swapIndex] = currItem;
         }
     }
-    drawSorted(arr)
-    return arr;
+    await drawSorted(arr)
 }

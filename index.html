@@ -11,7 +11,19 @@
         <title>Sorting Algorithm Visualizer</title>
         <link rel='stylesheet' href='./css/index.css'>
     </head>
-    <body onclick="drawSorted(quickSort(generateArray(100)))">
+    <body>
+        <div id="option_bar">
+            <select id="option_algorithm" class="options">
+                <option disabled>Algorithm</option>
+                <option value="1">Bubble Sort</option>
+                <option value="2">Insertion Sort</option>
+                <option value="3">Selection Sort</option>
+                <option value="4">Quick Sort</option>
+            </select>
+
+            <input type="button" id="generate_new" class="options" value="Generate New Array" onclick="generateNewArray()"/>
+            <input type="button" id="sort" class="options" value="Start Sorting" onclick="startSort()"/>
+        </div>
         <canvas id="visualizer"></canvas>
     </body>
 </html>

@@ -1,8 +1,30 @@
 #visualizer {
-    position: absolute;
-    top:0;
-    left:0;
-    width:100vw;
-    height:100%;
+    margin-top:5%;
+    margin-left:5%;
+    max-width:90%;
+    height:550px;
+    overflow: scroll;
+}
+
+body {
     background-color:black;
+    color: aliceblue;
+}
+
+.options {
+    font-size:14px;
+    font-weight: 900;
+    margin-left: 5%;
+    padding:10px 5px 10px 5px;
+    border-radius: 5px;
+    margin-top:1%;
+    background-color: black;
+    color:white;
+    border:1px solid white;
+}
+
+option {
+    background-color: black;
+    font-weight: 900;
+    padding:10px 5px 10px 5px;
 }
