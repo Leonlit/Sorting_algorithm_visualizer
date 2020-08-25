@@ -1,8 +1,9 @@
 let canvas = document.getElementById("visualizer");
 let ctx = canvas.getContext('2d');
-let width = 1
-let delayTime = 10;
-let halfDelayTime = 5;
+let width = 1;
+
+const delays = [5, 10, 20];
+let delayTime ,halfDelayTime;
 
 let newArr = null;
 let lockOptions = false;
@@ -63,7 +64,8 @@ async function redrawSort (arr) {
 }
 
 async function startSort () {
-    console.log(lockOptions);
+    delayTime = delays[1];
+    halfDelayTime = delays[0];
     if (!lockOptions) {
         if (newArr ==  null) {
             generateNewArray();
@@ -73,6 +75,7 @@ async function startSort () {
         switch (type) {
             case 1:
                 await bubbleSort(newArr);
+                break;
             case 2:
                 await insertionSort(newArr); 
                 break;

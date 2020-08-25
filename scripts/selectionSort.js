@@ -18,5 +18,4 @@ async function selectionSort (arr, descending = false) {
         arr[position] = arr[position] - arr[currSwapIndex];
     }
     await drawSorted(arr)
-    console.log(arr);
 }
