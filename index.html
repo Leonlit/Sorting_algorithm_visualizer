@@ -2,12 +2,10 @@
 <html lang='en'>
     <head>
         <meta charset='UTF-8'>
-        <meta name='description' content=''>
+        <meta name='description' content='A simple visualizer for some common Sorting Algorithm'>
         <meta name='keywords' content='HTMl, CSS, JS, Sorting-Algorithm, bubble-sort, selection-sort, insertion-sort, quick-sort'>
         <meta name='author' content='Leon Lit'>
         <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-<!--         <link rel='icon' type='image/png' href='.png'/>
- -->
         <title>Sorting Algorithm Visualizer</title>
         <link rel='stylesheet' href='./css/index.css'>
     </head>
@@ -21,8 +19,9 @@
                 <option value="4">Quick Sort</option>
             </select>
 
-            <input type="button" id="generate_new" class="options" value="Generate New Array" onclick="generateNewArray()"/>
-            <input type="button" id="sort" class="options" value="Start Sorting" onclick="startSort()"/>
+            <div id="generate_new" class="options"  onclick="generateNewArray()">Generate New Array</div>
+            <div id="sort" class="options" onclick="startSort()">Start Sorting</div>
+            <a id="source" class="options" href="https://github.com/Leonlit/Sorting_algorithm_visualizer" target="_blank">Source Code</a>
         </div>
         <canvas id="visualizer"></canvas>
     </body>
