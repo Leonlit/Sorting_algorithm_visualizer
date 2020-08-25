@@ -20,6 +20,7 @@ async function insertionSort (arr, descending=false) {
         if (swapIndex != undefined) {
             const currItem = arr[position];
             for (let swap = position; swap > swapIndex ;swap--) {
+                await delay(delayTime);
                 drawSwap(arr.slice(0), swapIndex, swap - 1 , swap);
                 arr[swap] = arr[swap-1];
             }

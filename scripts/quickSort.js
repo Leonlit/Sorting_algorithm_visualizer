@@ -8,7 +8,8 @@ async function quickSort (arr, descending = false, offset=0) {
         }else {
             tempArr = [Math.min(...arr), Math.max(...arr)];
         }
-        drawDivideSwap(tempArr[0], null, tempArr[1], offset);
+        await delay(halfDelayTime);
+        await drawDivideSwap(tempArr[0], null, tempArr[1], offset);
         return tempArr;
     }
     let pivot = arr[arr.length - 1];
@@ -29,7 +30,7 @@ async function quickSort (arr, descending = false, offset=0) {
             }
         }
     }
-    await delay(10)
-    drawDivideSwap(left, pivot, right, offset);
+    await delay(halfDelayTime);
+    await drawDivideSwap(left, pivot, right, offset);
     return [...(await quickSort(left, descending, offset)), pivot, ... (await quickSort(right, descending, offset + left.length + 1))];
 }

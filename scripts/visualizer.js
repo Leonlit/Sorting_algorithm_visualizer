@@ -1,6 +1,8 @@
 let canvas = document.getElementById("visualizer");
 let ctx = canvas.getContext('2d');
 let width = 1
+let delayTime = 10;
+let halfDelayTime = 5;
 
 let newArr = null;
 let lockOptions = false;
@@ -8,7 +10,7 @@ let lockOptions = false;
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 
 async function drawSwap (arr, limiter, from, to) {
-    await delay(10);
+    await delay(delayTime);
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     for (let index = 0;index < arr.length;index++) {
         ctx.fillStyle ="white";
@@ -26,14 +28,14 @@ async function drawDivideSwap(left, pivot, right, offset) {
     }else {
         arr = [...left, pivot, ...right];
     }
-    await delay(10);
-    ctx.clearRect((offset * (width + 1)), 0, arr.length * (width + 1), canvas.height);
+    ctx.clearRect((offset * (width + 1) - 1), 0, arr.length * (width + 1) + 1, canvas.height);
     for (let index = 0; index < arr.length; index++) {
+        await delay(halfDelayTime);
         ctx.fillStyle = "red";
         if (index == left.length) ctx.fillStyle = "green"
         ctx.fillRect((offset + index) * (width + 1), canvas.height, width, -arr[index]);
     }
-    await delay(11);
+    await delay (halfDelayTime + arr.length)
     ctx.clearRect((offset * (width + 1)), 0, arr.length * (width + 1), canvas.height);
     for (let index = 0; index < arr.length; index++) {
         ctx.fillStyle = "white";

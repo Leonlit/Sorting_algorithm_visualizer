@@ -7,6 +7,7 @@ async function selectionSort (arr, descending = false) {
             if ((currSwap > arr[element] && !descending) || (descending && currSwap < arr[element])) {
                 currSwap = arr[element];
                 currSwapIndex = element;
+                await delay(delayTime);
                 drawSwap(arr.slice(0), position, position, currSwapIndex);
             }
         }
