@@ -46,7 +46,6 @@ async function drawDivideSwap(left, pivot, right, offset) {
 
 async function drawSorted (arr) {
     await delay(200);
-    console.log(arr);
     redrawSort(arr.slice(0));
     for (let index= 0;index < arr.length; index++) {
         await delay(1);
@@ -84,7 +83,13 @@ async function startSort () {
                 break;
             case 4:
                 await drawSorted(await quickSort(newArr));
-                
+                break;
+            case 5:
+                let result =await mergeSort(newArr);
+                await delay(halfDelayTime)
+                await redrawSort(result);
+                await delay(delayTime)
+                await drawSorted(result);
                 break;
             default:
                 console.log("wrong options!!!");
