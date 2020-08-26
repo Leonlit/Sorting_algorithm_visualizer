@@ -62,6 +62,15 @@ async function redrawSort (arr) {
     }
 }
 
+async function redrawSortAnimated (arr) {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (let index= 0;index < arr.length; index++) {
+        await delay(delayTime)
+        ctx.fillStyle ="white";
+        ctx.fillRect(index * (width + 1), canvas.height, width, -arr[index]);
+    }
+}
+
 async function startSort () {
     delayTime = delays[1];
     halfDelayTime = delays[0];
@@ -86,9 +95,7 @@ async function startSort () {
                 break;
             case 5:
                 let result =await mergeSort(newArr);
-                await delay(halfDelayTime)
-                await redrawSort(result);
-                await delay(delayTime)
+                await redrawSortAnimated(result);
                 await drawSorted(result);
                 break;
             default:
