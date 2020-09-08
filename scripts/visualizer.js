@@ -1,6 +1,7 @@
 let canvas = document.getElementById("visualizer");
 let ctx = canvas.getContext('2d');
 let width = 1;
+let sortArrInDsc = false;
 
 const delays = [5, 10, 20];
 let delayTime ,halfDelayTime;
@@ -82,21 +83,24 @@ async function startSort () {
         lockOptions = true;
         switch (type) {
             case 1:
-                await bubbleSort(newArr);
+                await bubbleSort(newArr, sortArrInDsc);
                 break;
             case 2:
-                await insertionSort(newArr); 
+                await insertionSort(newArr, sortArrInDsc); 
                 break;
             case 3:
-                await selectionSort(newArr);
+                await selectionSort(newArr, sortArrInDsc);
                 break;
             case 4:
-                await drawSorted(await quickSort(newArr));
+                await drawSorted(await quickSort(newArr, sortArrInDsc));
                 break;
             case 5:
-                let result =await mergeSort(newArr);
+                let result = await mergeSort(newArr, sortArrInDsc);
                 await redrawSortAnimated(result);
                 await drawSorted(result);
+                break;
+            case 6:
+                await HeapSort(newArr, sortArrInDsc);
                 break;
             default:
                 console.log("wrong options!!!");
@@ -110,5 +114,17 @@ function generateNewArray () {
     if (!lockOptions) {
         newArr = generateArray(150);
         redrawSort(newArr);
+    }
+}
+
+let sortOrderBtnContainer = document.getElementById("dscOrder");
+function sortInDsc () {
+    sortArrInDsc = (sortArrInDsc) ? false : true;
+    if (sortArrInDsc) {
+        sortOrderBtnContainer.style.backgroundColor = "rgb(255, 255, 0)";
+        sortOrderBtnContainer.style.color = "black";
+    }else {
+        sortOrderBtnContainer.style.backgroundColor = "rgb(0, 0, 0)";
+        sortOrderBtnContainer.style.color = "white";
     }
 }
